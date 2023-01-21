@@ -34,4 +34,28 @@ app.post("/api/movies", (req, res)=>{
     db.addNewMovie(req.body);
 });
 
+app.get("/api/movies", (req, res)=>{
+    //Takes parameters
+});
+
+app.get("/api/movies/:id", (req, res)=>{
+    db.getMovieById(req.params.id);
+});
+
+app.put("/api/movies/:id", (req, res)=>{
+    db.updateMovieById(req.body, req.params.id).then(()=>{
+        res.send("Movie Update");
+    }).catch(()=>{
+        res.send("Unable to Update Movie");
+    });
+})
+
+app.delete("/api/movies/:id", (req, res)=>{
+    db.deleteMovieById(req.params.id).then(()=>{
+        res.send("Movie Deleted");
+    }).catch(()=>{
+        res.send("Unable to Delete Movie");
+    });
+});
+
 app.listen(port, onStart);
