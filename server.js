@@ -39,7 +39,7 @@ app.post("/api/movies", (req, res)=>{
 });
 
 app.get("/api/movies", (req, res)=>{
-    //Takes parameters
+    //Idk
 });
 
 app.get("/api/movies/:id", (req, res)=>{
