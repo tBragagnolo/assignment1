@@ -39,7 +39,11 @@ app.get("/api/movies", (req, res)=>{
 });
 
 app.get("/api/movies/:id", (req, res)=>{
-    db.getMovieById(req.params.id);
+    db.getMovieById(req.params.id).then((data)=>{
+        res.json(data);
+    }).catch(()=>{
+        res.send("Unable to Find Movie");
+    });
 });
 
 app.put("/api/movies/:id", (req, res)=>{
