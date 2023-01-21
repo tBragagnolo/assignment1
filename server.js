@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv").config;
+const MoviesDB = require("./modules/moviesDB");
 
 const app = express();
 const port = 8080;
