@@ -1,7 +1,19 @@
+/*********************************************************************************
+*  BTI425 – Assignment 1
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  
+*  No part of this assignment has been copied manually or electronically from any other source
+*  (including web sites) or distributed to other students.
+* 
+*  Name: Tom Bragagnolo Student ID: 139157218 Date: January 20, 2023
+*  Cyclic Link: 
+*
+********************************************************************************/ 
+
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv").config;
 const MoviesDB = require("./modules/moviesDB");
+const db = new MoviesDB;
 
 const app = express();
 const port = 8080;
@@ -13,8 +25,13 @@ function onStart() {
 app.use(cors());
 app.use(express.json());
 
+//Routes
 app.get("/", (req, res)=>{
     res.json({message:"API Listening"});
+});
+
+app.post("/api/movies", (req, res)=>{
+    db.addNewMovie(req.body);
 });
 
 app.listen(port, onStart);
