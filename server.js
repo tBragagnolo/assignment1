@@ -66,7 +66,7 @@ app.delete("/api/movies/:id", (req, res)=>{
     });
 });
 
-db.initialize("mongodb+srv://dbUser:mavB8FCMxg9djSKa@cluster0.zw7jc78.mongodb.net/sample_mflix?retryWrites=true&w=majority").then(()=>{
+db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
     app.listen(port, onStart);
 }).catch((err)=>{
     console.log(err);
