@@ -66,4 +66,4 @@ app.delete("/api/movies/:id", (req, res)=>{
     });
 });
 
-app.listen(port, onStart);
+//app.listen(port, onStart);
