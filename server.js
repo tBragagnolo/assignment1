@@ -66,4 +66,10 @@ app.delete("/api/movies/:id", (req, res)=>{
     });
 });
 
+db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
+    app.listen(port, onStart);
+}).catch((err)=>{
+    console.log(err);
+});
+
 //app.listen(port, onStart);
