@@ -31,7 +31,11 @@ app.get("/", (req, res)=>{
 });
 
 app.post("/api/movies", (req, res)=>{
-    db.addNewMovie(req.body);
+    db.addNewMovie(req.body).then((data)=>{
+        res.json(data);
+    }).catch(()=>{
+        res.send("Unable to Add Movie");
+    });
 });
 
 app.get("/api/movies", (req, res)=>{
