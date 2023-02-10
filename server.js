@@ -39,7 +39,11 @@ app.post("/api/movies", (req, res)=>{
 });
 
 app.get("/api/movies", (req, res)=>{
-    //Idk
+    db.getAllMovies(req.query.page, req.query.perPage, req.query.title).then((data)=>{
+        res.json(data);
+    }).catch(()=>{
+        res.send("Error Occured");
+    });
 });
 
 app.get("/api/movies/:id", (req, res)=>{
