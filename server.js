@@ -52,7 +52,7 @@ app.get("/api/movies/:id", (req, res)=>{
 
 app.put("/api/movies/:id", (req, res)=>{
     db.updateMovieById(req.body, req.params.id).then(()=>{
-        res.send("Movie Update");
+        res.send("Movie Updated");
     }).catch(()=>{
         res.send("Unable to Update Movie");
     });
