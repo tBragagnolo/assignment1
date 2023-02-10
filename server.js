@@ -27,7 +27,7 @@ app.use(express.json());
 
 //Routes
 app.get("/", (req, res)=>{
-    
+    res.json({message:"Api Listening"});
 });
 
 app.post("/api/movies", (req, res)=>{
